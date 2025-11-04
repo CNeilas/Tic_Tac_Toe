@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#gameTable {
+  display: flex;
+  flex-wrap: wrap;
+  width: 360px;
+  height: 360px;
+  border: 1px solid black;
+}
+
+.box {
+  width: 120px;
+  height: 120px;
+  outline: 1px solid black;
+  /* border-collapse: collapse; */
+}

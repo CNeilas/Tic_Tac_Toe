@@ -1,7 +1,9 @@
 export const Gameboard = (function () {
   let gameEnd = false;
+  let playerWin = false;
+  let cpuWin = false;
 
-  const gameboard = [
+  let gameboard = [
     [null, null, null],
     [null, null, null],
     [null, null, null],
@@ -9,6 +11,8 @@ export const Gameboard = (function () {
 
   return {
     gameEnd,
+    playerWin,
+    cpuWin,
     gameboard,
   };
 })();

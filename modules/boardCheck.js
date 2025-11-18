@@ -18,7 +18,7 @@ export const BoardChecker = {
       Gameboard.gameboard[positions.bottomRight[0]][positions.bottomRight[1]] ==
         "o"
     ) {
-      Gameboard.cpuWin = true;
+      Gameboard.playerOWin = true;
       Gameboard.gameEnd = true;
     } else if (
       Gameboard.gameboard[positions.topRight[0]][positions.topRight[1]] ==
@@ -40,7 +40,7 @@ export const BoardChecker = {
       Gameboard.gameboard[positions.bottomLeft[0]][positions.bottomLeft[1]] ==
         "o"
     ) {
-      Gameboard.cpuWin = true;
+      Gameboard.playerOWin = true;
       Gameboard.gameEnd = true;
     } else if (
       Gameboard.gameboard[positions.topLeft[0]][positions.topLeft[1]] == "x" &&
@@ -56,7 +56,7 @@ export const BoardChecker = {
         "o" &&
       Gameboard.gameboard[positions.topRight[0]][positions.topRight[1]] == "o"
     ) {
-      Gameboard.cpuWin = true;
+      Gameboard.playerOWin = true;
       Gameboard.gameEnd = true;
     } else if (
       Gameboard.gameboard[positions.middleLeft[0]][positions.middleLeft[1]] ==
@@ -78,7 +78,7 @@ export const BoardChecker = {
       Gameboard.gameboard[positions.middleRight[0]][positions.middleRight[1]] ==
         "o"
     ) {
-      Gameboard.cpuWin = true;
+      Gameboard.playerOWin = true;
       Gameboard.gameEnd = true;
     } else if (
       Gameboard.gameboard[positions.bottomLeft[0]][positions.bottomLeft[1]] ==
@@ -100,7 +100,7 @@ export const BoardChecker = {
       Gameboard.gameboard[positions.bottomRight[0]][positions.bottomRight[1]] ==
         "o"
     ) {
-      Gameboard.cpuWin = true;
+      Gameboard.playerOWin = true;
       Gameboard.gameEnd = true;
     } else if (
       Gameboard.gameboard[positions.topLeft[0]][positions.topLeft[1]] == "x" &&
@@ -118,7 +118,7 @@ export const BoardChecker = {
       Gameboard.gameboard[positions.bottomLeft[0]][positions.bottomLeft[1]] ==
         "o"
     ) {
-      Gameboard.cpuWin = true;
+      Gameboard.playerOWin = true;
       Gameboard.gameEnd = true;
     } else if (
       Gameboard.gameboard[positions.topCenter[0]][positions.topCenter[1]] ==
@@ -142,7 +142,7 @@ export const BoardChecker = {
         positions.bottomCenter[1]
       ] == "o"
     ) {
-      Gameboard.cpuWin = true;
+      Gameboard.playerOWin = true;
       Gameboard.gameEnd = true;
     } else if (
       Gameboard.gameboard[positions.topRight[0]][positions.topRight[1]] ==
@@ -162,7 +162,7 @@ export const BoardChecker = {
       Gameboard.gameboard[positions.bottomRight[0]][positions.bottomRight[1]] ==
         "o"
     ) {
-      Gameboard.cpuWin = true;
+      Gameboard.playerOWin = true;
       Gameboard.gameEnd = true;
     }
   },
@@ -170,7 +170,7 @@ export const BoardChecker = {
   gameState(Gameboard) {
     if (Gameboard.gameEnd == true) {
       console.log(Gameboard.playerWin);
-      console.log(Gameboard.cpuWin);
+      console.log(Gameboard.playerOWin);
     }
   },
 };

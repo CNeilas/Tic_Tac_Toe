@@ -13,6 +13,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 50px;
 }
 
 #gameTable {
@@ -27,10 +29,18 @@ body {
   width: 120px;
   height: 120px;
   outline: 1px solid black;
-  /* border-collapse: collapse; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
 }
 
 .box:hover {
   cursor: pointer;
   background-color: rgb(194, 188, 188);
+}
+
+#reset {
+  padding: 15px;
+  width: 300px;
 }

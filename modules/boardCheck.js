@@ -171,6 +171,19 @@ export const BoardChecker = {
     if (Gameboard.gameEnd == true) {
       console.log(Gameboard.playerWin);
       console.log(Gameboard.playerOWin);
+
+      const body = document.querySelector("body");
+      if (Gameboard.playerWin) {
+        const p = document.createElement("p");
+        p.setAttribute("id", "done");
+        body.appendChild(p);
+        p.textContent = "Player X Wins!!";
+      } else {
+        const p = document.createElement("p");
+        p.setAttribute("id", "done");
+        body.appendChild(p);
+        p.textContent = "Player O Wins!!";
+      }
     }
   },
 };

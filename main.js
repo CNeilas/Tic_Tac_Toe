@@ -13,21 +13,28 @@ function Game() {
     gameTable.appendChild(div);
   }
 
-  let boxes = document.querySelectorAll(".box");
+  const boxes = document.querySelectorAll(".box");
   for (let box of boxes) {
     box.addEventListener("click", (e) => {
-      let idOfBox = e.target.id;
-      console.log(idOfBox);
-      console.log(e.target.innerText);
+      if (Gameboard.gameEnd != true) {
+        const idOfBox = e.target.id;
+        console.log(idOfBox);
+        console.log(e.target.innerText);
+        if (e.target.innerText == "") {
+          if (playerXObj.myTurn == true && playerOObj.myTurn == false) {
+            playerXObj.useTurn(e, idOfBox);
+            playerXObj.myTurn = false;
+            playerOObj.myTurn = true;
+          } else if (playerXObj.myTurn == false && playerOObj.myTurn == true) {
+            playerOObj.useTurn(e, idOfBox);
+            playerOObj.myTurn = false;
+            playerXObj.myTurn = true;
+          }
 
-      if (playerXObj.myTurn == true && playerOObj.myTurn == false) {
-        playerXObj.useTurn(e, idOfBox);
-        playerXObj.myTurn = false;
-        playerOObj.myTurn = true;
-      } else if (playerXObj.myTurn == false && playerOObj.myTurn == true) {
-        playerOObj.useTurn(e, idOfBox);
-        playerOObj.myTurn = false;
-        playerXObj.myTurn = true;
+          console.log(Gameboard.gameboard);
+        } else {
+          console.log("The spot is taken");
+        }
       }
     });
   }
@@ -73,7 +80,6 @@ const playerXObj = (function PlayerX() {
     e.target.innerText = sign;
     BoardChecker.checkBoard(positions, Gameboard);
     BoardChecker.gameState(Gameboard);
-    console.log(Gameboard.gameboard);
   }
 
   return {
@@ -122,7 +128,6 @@ const playerOObj = (function PlayerO() {
     e.target.innerText = sign;
     BoardChecker.checkBoard(positions, Gameboard);
     BoardChecker.gameState(Gameboard);
-    console.log(Gameboard.gameboard);
   }
 
   return {
@@ -134,3 +139,23 @@ const playerOObj = (function PlayerO() {
 Game();
 
 // BoardChecker.checkBoard(positions, Gameboard);
+
+const resetBtn = document.getElementById("reset");
+
+resetBtn.addEventListener("click", () => {
+  Gameboard.gameEnd = false;
+  Gameboard.playerWin = false;
+  Gameboard.playerOWin = false;
+  Gameboard.gameboard = [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+  ];
+
+  document.getElementById("done").remove();
+
+  const boxes = document.querySelectorAll(".box");
+  for (let box of boxes) {
+    box.innerText = "";
+  }
+});
